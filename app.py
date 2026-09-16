@@ -51,7 +51,15 @@ duration = st.number_input(
 )
 
 if st.button("🔴 INJECT FAULT"):
-    st.warning("Fault injection request created.")
+    st.error("⚠️ FAULT DETECTED")
+
+    st.write("Component:", component)
+    st.write("Fault:", fault_type)
+    st.write("Severity:", severity)
+    st.write("Duration:", duration, "seconds")
+
+    st.warning("🛑 Safety response activated")
+    st.success("🟢 Elevator moved to SAFE STATE")
     st.write("Component:", component)
     st.write("Fault:", fault_type)
     st.write("Severity:", severity)
