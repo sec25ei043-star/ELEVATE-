@@ -63,35 +63,33 @@ duration = st.number_input(
 
 if st.button("🔴 INJECT FAULT"):
     st.error("⚠️ FAULT DETECTED")
-
     st.write("Component:", component)
     st.write("Fault:", fault_type)
     st.write("Severity:", severity)
     st.write("Duration:", duration, "seconds")
 
     if fault_type == "Signal Loss":
-    st.warning("📡 SIGNAL LOST — Backup safety monitoring activated")
-
-elif fault_type == "Stuck Signal":
-    st.warning("🔒 STUCK SIGNAL DETECTED — Sensor fault isolation activated")
-
-elif fault_type == "Communication Failure":
-    st.warning("📡 COMMUNICATION FAILURE — Backup communication path activated")
-
-else:
-    if severity == "High":
-        st.warning("🛑 CRITICAL FAULT — Emergency safety response activated")
-    elif severity == "Medium":
-        st.warning("⚠️ WARNING — Safety response activated")
+        st.warning("📡 SIGNAL LOST — Backup safety monitoring activated")
+    elif fault_type == "Stuck Signal":
+        st.warning("🔒 STUCK SIGNAL DETECTED — Sensor fault isolation activated")
+    elif fault_type == "Communication Failure":
+        st.warning("📡 COMMUNICATION FAILURE — Backup communication path activated")
     else:
-        st.info("ℹ️ LOW-SEVERITY FAULT — Safety monitoring activated")
-        st.success("🟢 Elevator moved to SAFE STATE")
-    
-        
-    
-        
+        if severity == "High":
+            st.warning("🛑 CRITICAL FAULT — Emergency safety response activated")
+        elif severity == "Medium":
+            st.warning("⚠️ WARNING — Safety response activated")
+        else:
+            st.info("ℹ️ LOW-SEVERITY FAULT — Safety monitoring activated")
 
     st.success("🟢 Elevator moved to SAFE STATE")
+    
+    
+        
+    
+        
+
+    
     st.error("⚠️ FAULT DETECTED")
 
     st.write("Component:", component)
