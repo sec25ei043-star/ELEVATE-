@@ -174,9 +174,40 @@ else:
     st.info("Run and save a fault to generate the test result.")
 st.subheader("📡 Live Signal Monitor")
 
-st.write("Speed Sensor: 🟢 NORMAL")
-st.write("Position Sensor: 🟢 NORMAL")
-st.write("Door Signal: 🟢 CLOSED")
-st.write("Brake Signal: 🟢 ENGAGED")
-st.write("Controller Signal: 🟢 ACTIVE")
-st.write("Communication: 🟢 CONNECTED")
+if st.session_state.fault_history:
+    latest_fault = st.session_state.fault_history[-1]
+    active_fault = latest_fault["Fault"]
+
+    if active_fault == "Signal Loss":
+        st.write("Speed Sensor: 🔴 SIGNAL LOST")
+        st.write("Position Sensor: 🟢 NORMAL")
+        st.write("Door Signal: 🟢 CLOSED")
+        st.write("Brake Signal: 🟢 ENGAGED")
+        st.write("Controller Signal: 🟢 ACTIVE")
+        st.write("Communication: 🟢 CONNECTED")
+
+    elif active_fault == "Stuck Signal":
+        st.write("Speed Sensor: 🟠 STUCK SIGNAL")
+        st.write("Position Sensor: 🟢 NORMAL")
+        st.write("Door Signal: 🟢 CLOSED")
+        st.write("Brake Signal: 🟢 ENGAGED")
+        st.write("Controller Signal: 🟢 ACTIVE")
+        st.write("Communication: 🟢 CONNECTED")
+
+    elif active_fault == "Communication Failure":
+        st.write("Speed Sensor: 🟢 NORMAL")
+        st.write("Position Sensor: 🟢 NORMAL")
+        st.write("Door Signal: 🟢 CLOSED")
+        st.write("Brake Signal: 🟢 ENGAGED")
+        st.write("Controller Signal: 🟠 LIMITED")
+        st.write("Communication: 🔴 DISCONNECTED")
+
+    else:
+        st.write("Speed Sensor: 🟢 NORMAL")
+        st.write("Position Sensor: 🟢 NORMAL")
+        st.write("Door Signal: 🟢 CLOSED")
+        st.write("Brake Signal: 🟢 ENGAGED")
+        st.write("Controller Signal: 🟢 ACTIVE")
+        st.write("Communication: 🟢 CONNECTED")
+else:
+    st.info("No active fault. All signals are normal.")
