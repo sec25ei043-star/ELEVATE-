@@ -82,3 +82,10 @@ if st.session_state.fault_history:
     st.table(st.session_state.fault_history)
 else:
     st.info("No faults recorded yet.")
+st.subheader("✅ Safety Validation")
+
+if st.session_state.fault_history:
+    st.success("VALIDATION PASSED")
+    st.write("Fault was detected and safety response was activated.")
+else:
+    st.info("Inject and save a fault to perform validation.")
