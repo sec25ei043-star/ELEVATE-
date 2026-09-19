@@ -220,6 +220,29 @@ if st.session_state.fault_history:
         st.write("Communication: 🟢 CONNECTED")
 else:
     st.info("No active fault. All signals are normal.")
+    st.subheader("📈 Speed Signal")
+
+time = [0, 1, 2, 3, 4, 5]
+speed = [0, 0.5, 1.0, 1.0, 0.5, 0]
+
+fig = go.Figure()
+
+fig.add_trace(
+    go.Scatter(
+        x=time,
+        y=speed,
+        mode="lines+markers",
+        name="Speed"
+    )
+)
+
+fig.update_layout(
+    xaxis_title="Time (seconds)",
+    yaxis_title="Speed (m/s)",
+    title="Elevator Speed vs Time"
+)
+
+st.plotly_chart(fig, use_container_width=True)
 st.subheader("📊 Fault Analysis")
 
 if st.session_state.fault_history:
