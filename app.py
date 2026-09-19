@@ -1,4 +1,5 @@
 import streamlit as st
+import plotly.graph_objects as go
 if "fault_history" not in st.session_state:
     st.session_state.fault_history = [ ]
 st.subheader("🖥️ System Status")
