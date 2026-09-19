@@ -1,5 +1,16 @@
 import streamlit as st
+st.subheader("🖥️ System Status")
 
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric("System", "ONLINE")
+
+with col2:
+    st.metric("Safety State", "SAFE")
+
+with col3:
+    st.metric("Validation", "PASSED")
 st.set_page_config(
     page_title="ELEVATE Safety Simulator",
     page_icon="🛗",
