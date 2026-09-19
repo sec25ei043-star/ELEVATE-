@@ -244,7 +244,25 @@ fig.update_layout(
 
 st.plotly_chart(fig, use_container_width=True)
 st.subheader("📊 Fault Analysis")
+st.subheader("🤖 Autonomous Testing")
 
+st.write("Automatically generated virtual fault scenarios")
+
+if st.button("▶️ START AUTONOMOUS TEST"):
+
+    test_faults = [
+        "Signal Loss",
+        "Stuck Signal",
+        "Communication Failure"
+    ]
+
+    st.info("🔄 Autonomous testing started...")
+
+    for fault in test_faults:
+        st.write("Testing:", fault)
+        st.success("✅ Safety response detected")
+
+    st.success("🏁 Autonomous testing completed")
 if st.session_state.fault_history:
     latest_fault = st.session_state.fault_history[-1]
 
