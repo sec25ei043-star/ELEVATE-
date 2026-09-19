@@ -97,3 +97,15 @@ if st.session_state.fault_history:
     st.success("⚡ Safety response completed successfully")
 else:
     st.info("Inject and save a fault to display timing results.")
+st.subheader("📊 Fault Severity Summary")
+
+if st.session_state.fault_history:
+    low_count = sum(1 for f in st.session_state.fault_history if f["Severity"] == "Low")
+    medium_count = sum(1 for f in st.session_state.fault_history if f["Severity"] == "Medium")
+    high_count = sum(1 for f in st.session_state.fault_history if f["Severity"] == "High")
+
+    st.write("🟢 Low Severity:", low_count)
+    st.write("🟡 Medium Severity:", medium_count)
+    st.write("🔴 High Severity:", high_count)
+else:
+    st.info("No fault data available.")
