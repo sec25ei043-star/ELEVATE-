@@ -64,3 +64,21 @@ if st.button("🔴 INJECT FAULT"):
     st.write("Fault:", fault_type)
     st.write("Severity:", severity)
     st.write("Duration:", duration, "seconds")
+st.subheader("📋 Fault History")
+
+if "fault_history" not in st.session_state:
+    st.session_state.fault_history = []
+
+if st.button("💾 SAVE FAULT TO HISTORY"):
+    st.session_state.fault_history.append({
+        "Component": component,
+        "Fault": fault_type,
+        "Severity": severity,
+        "Duration (s)": duration,
+        "Response": "SAFE STATE"
+    })
+
+if st.session_state.fault_history:
+    st.table(st.session_state.fault_history)
+else:
+    st.info("No faults recorded yet.")
