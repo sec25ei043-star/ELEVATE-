@@ -1,4 +1,6 @@
 import streamlit as st
+if "fault_history" not in st.session_state:
+    st.session_state.fault_history = [ ]
 st.subheader("🖥️ System Status")
 
 col1, col2, col3 = st.columns(3)
