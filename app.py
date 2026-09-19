@@ -172,3 +172,11 @@ if st.session_state.fault_history:
     st.write("Final State: SAFE ✅")
 else:
     st.info("Run and save a fault to generate the test result.")
+st.subheader("📡 Live Signal Monitor")
+
+st.write("Speed Sensor: 🟢 NORMAL")
+st.write("Position Sensor: 🟢 NORMAL")
+st.write("Door Signal: 🟢 CLOSED")
+st.write("Brake Signal: 🟢 ENGAGED")
+st.write("Controller Signal: 🟢 ACTIVE")
+st.write("Communication: 🟢 CONNECTED")
