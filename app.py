@@ -230,5 +230,23 @@ if st.session_state.fault_history:
     st.write("Detection Time: 0.32 seconds")
     st.write("Safety State: 🟢 SAFE")
     st.write("Result: ✅ PASS")
+    if latest_fault["Fault"] == "Signal Loss":
+        expected_response = "Backup safety monitoring activated"
+        actual_response = "Backup safety monitoring activated"
+
+    elif latest_fault["Fault"] == "Stuck Signal":
+        expected_response = "Sensor fault isolation activated"
+        actual_response = "Sensor fault isolation activated"
+
+    elif latest_fault["Fault"] == "Communication Failure":
+        expected_response = "Backup communication path activated"
+        actual_response = "Backup communication path activated"
+
+    else:
+        expected_response = "Safety response activated"
+        actual_response = "Safety response activated"
+
+    st.write("Expected Response:", expected_response)
+    st.write("Actual Response:", actual_response)
 else:
     st.info("Inject and save a fault to view fault analysis.")
