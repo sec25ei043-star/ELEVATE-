@@ -69,6 +69,21 @@ if st.button("🔴 INJECT FAULT"):
     st.write("Severity:", severity)
     st.write("Duration:", duration, "seconds")
 
+    if severity == "High":
+        st.warning("🛑 CRITICAL FAULT — Emergency safety response activated")
+    elif severity == "Medium":
+        st.warning("⚠️ WARNING — Safety response activated")
+    else:
+        st.info("ℹ️ LOW-SEVERITY FAULT — Safety monitoring activated")
+
+    st.success("🟢 Elevator moved to SAFE STATE")
+    st.error("⚠️ FAULT DETECTED")
+
+    st.write("Component:", component)
+    st.write("Fault:", fault_type)
+    st.write("Severity:", severity)
+    st.write("Duration:", duration, "seconds")
+
     st.warning("🛑 Safety response activated")
     st.success("🟢 Elevator moved to SAFE STATE")
     st.write("Component:", component)
