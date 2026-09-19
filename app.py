@@ -35,7 +35,13 @@ with col3:
 
 with col4:
     st.metric("Safety State", "SAFE")
+st.write("Brake: 🟢 ENGAGED")
+st.write("Controller State: 🟢 ACTIVE")
 
+if st.session_state.fault_history:
+    st.write("Active Fault: 🔴 " + st.session_state.fault_history[-1]["Fault"])
+else:
+    st.write("Active Fault: 🟢 NONE")
 st.success("System is operating normally.")
 st.subheader("🔴 Failure Injection")
 
