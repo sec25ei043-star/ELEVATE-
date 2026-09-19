@@ -109,3 +109,17 @@ if st.session_state.fault_history:
     st.write("🔴 High Severity:", high_count)
 else:
     st.info("No fault data available.")
+st.subheader("📝 Latest Fault Test Report")
+
+if st.session_state.fault_history:
+    latest_fault = st.session_state.fault_history[-1]
+
+    st.write("**Component:**", latest_fault["Component"])
+    st.write("**Fault Type:**", latest_fault["Fault"])
+    st.write("**Severity:**", latest_fault["Severity"])
+    st.write("**Duration:**", latest_fault["Duration (s)"], "seconds")
+    st.write("**Safety Response:**", latest_fault["Response"])
+
+    st.success("✅ Fault test completed and validated")
+else:
+    st.info("No fault test available.")
